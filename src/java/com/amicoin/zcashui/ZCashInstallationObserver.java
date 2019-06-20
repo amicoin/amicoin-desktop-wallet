@@ -294,7 +294,7 @@ public class ZCashInstallationObserver
 		}
 		
 		String blockChainDir = OSUtil.getBlockchainDirectory();
-		File zenConf = new File(blockChainDir + File.separator + "zen.conf");
+		File zenConf = new File(blockChainDir + File.separator + "amicoin.conf");
 		if (zenConf.exists())
 		{
 			Properties confProps = new Properties();
