@@ -479,7 +479,8 @@ public class SendCashPanel
 		{
 			if (!(destinationAddress.startsWith("zc") || 
 				  destinationAddress.startsWith("zn") ||
-				  destinationAddress.startsWith("zs")))
+				  destinationAddress.startsWith("zs") ||
+				  destinationAddress.startsWith("t1")))
 			{
 				Object[] options = { "OK" };
 

@@ -480,7 +480,7 @@ public class DashboardPanel
 		}
 		
 		// TODO: Get the start date right after ZCash release - from first block!!!
-		final Date startDate = new Date("06 Nov 2016 02:00:00 GMT");
+		final Date startDate = new Date("20 Jun 2019 02:00:00 GMT");
 		final Date nowDate = new Date(System.currentTimeMillis());
 		
 		long fullTime = nowDate.getTime() - startDate.getTime();
@@ -900,6 +900,9 @@ public class DashboardPanel
 		{
 			JsonObject data = new JsonObject();
 			
+			// TODO: No rates for AMICOIN for now
+			
+			/*
 			try
 			{
 				URL u = new URL("https://api.coinmarketcap.com/v1/ticker/zencash");
@@ -911,6 +914,7 @@ public class DashboardPanel
 				Log.warning("Could not obtain ZEN exchange information from coinmarketcap.com due to: {0} {1}", 
 						    ioe.getClass().getName(), ioe.getMessage());
 			}
+			*/
 			
 			return data;
 		}
