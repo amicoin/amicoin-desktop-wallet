@@ -418,7 +418,7 @@ public class WalletOperations
 
 	
 	/**
-	 * Brings up a GUI dialog box to edit the command line parameters of zend that the GUI starts.
+	 * Brings up a GUI dialog box to edit the command line parameters of amicoind that the GUI starts.
 	 */
 	public void editZendOptions()
 	{
@@ -626,7 +626,7 @@ public class WalletOperations
 			throws IOException
 	{
 	    String userDir = OSUtil.getSettingsDirectory();
-	    File warningFlagFile = new File(userDir + File.separator + "zendParameterWarningShown.flag");
+	    File warningFlagFile = new File(userDir + File.separator + "amicoindParameterWarningShown.flag");
 	    if (warningFlagFile.exists())
 	    {
 	        return;
@@ -635,7 +635,7 @@ public class WalletOperations
         int reply = JOptionPane.showOptionDialog(
             this.parent,
             langUtil.getString("wallet.operations.zend.parameters.warning.text",
-            	new File(userDir + File.separator + "zend-cmd-options.conf").getCanonicalPath()),
+            	new File(userDir + File.separator + "amicoind-cmd-options.conf").getCanonicalPath()),
 	        langUtil.getString("wallet.operations.zend.parameters.warning.title"),
 	        JOptionPane.YES_NO_OPTION,
 	        JOptionPane.WARNING_MESSAGE, 

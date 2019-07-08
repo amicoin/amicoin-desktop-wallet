@@ -60,7 +60,7 @@ import javax.swing.JTextArea;
 
 
 /**
- * Dialog showing the zend startup options and allowing them to be edited.
+ * Dialog showing the AMICoinWalletUI startup options and allowing them to be edited.
  */
 public class ZendParametersEditDialog
 	extends JDialog
@@ -99,8 +99,9 @@ public class ZendParametersEditDialog
 			{
 				try
 				{
-					Desktop.getDesktop().browse(new URI(
-						"https://github.com/ZencashOfficial/zencash-swing-wallet-ui/blob/feature/zend-cmd-options/docs/zend.pdf"));
+				    // TODO:
+					//Desktop.getDesktop().browse(new URI(
+					//	"https://github.com/ZencashOfficial/zencash-swing-wallet-ui/blob/feature/zend-cmd-options/docs/zend.pdf"));
 				}
 				catch(Exception ex)
 				{
@@ -269,7 +270,7 @@ public class ZendParametersEditDialog
 				{
 					if ((!optionToSet.equals(currentOptionToCheck)))
 					{
-						Log.info("Saving user-modified zend option at line {0}: {1}", oo, optionToSet);
+						Log.info("Saving user-modified amicoind option at line {0}: {1}", oo, optionToSet);
 						zendFullFileLines.set(oo, optionToSet);
 					}
 
@@ -284,7 +285,7 @@ public class ZendParametersEditDialog
 			
 			if (!bFound)
 			{
-				Log.info("Adding user-created zend option at line {0}: {1}", zendFullFileLines.size(), optionToSet);
+				Log.info("Adding user-created amicoind option at line {0}: {1}", zendFullFileLines.size(), optionToSet);
 				zendFullFileLines.add(optionToSet);
 			}
 		}
@@ -319,7 +320,7 @@ public class ZendParametersEditDialog
 			
 			if (bRemove)
 			{
-				Log.info("Removing user-deleted zend option at line {0}: {1}", oo, currentOptionToCheck);
+				Log.info("Removing user-deleted amicoind option at line {0}: {1}", oo, currentOptionToCheck);
 				zendFullFileLines.set(oo, "");
 			}
 		}
@@ -328,7 +329,7 @@ public class ZendParametersEditDialog
 		// Finally save the file
     	String settingsDir = OSUtil.getSettingsDirectory();
     	File dir = new File(settingsDir);
-		File zendOptionsFile = new File(dir, "zend-cmd-options.conf");
+		File zendOptionsFile = new File(dir, "amicoind-cmd-options.conf");
 
 		Util.renameFileForMultiVersionBackup(dir, zendOptionsFile.getName());
 		

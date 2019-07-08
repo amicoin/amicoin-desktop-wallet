@@ -87,15 +87,15 @@ public class ZCashInstallationObserver
 		}
 
 		Log.info("Using Horizen utilities: " +
-		                   "zend: "    + ((zcashd != null) ? zcashd.getCanonicalPath() : "<MISSING>") + ", " +
-		                   "zen-cli: " + ((zcashcli != null) ? zcashcli.getCanonicalPath() : "<MISSING>"));
+		                   "amicoind: "    + ((zcashd != null) ? zcashd.getCanonicalPath() : "<MISSING>") + ", " +
+		                   "amicoin-cli: " + ((zcashcli != null) ? zcashcli.getCanonicalPath() : "<MISSING>"));
 
 		if ((zcashd == null) || (zcashcli == null) || (!zcashd.exists()) || (!zcashcli.exists()))
 		{
 			throw new InstallationDetectionException(
 				"The Horizen GUI Wallet installation directory " + installDir + " needs\nto contain " +
-				"the command line utilities zend and zen-cli. At least one of them is missing! \n" +
-				"Please place files ZENCashSwingWalletUI.jar, " + OSUtil.getZCashCli() + ", " + 
+				"the command line utilities amicoind and amicoind-cli. At least one of them is missing! \n" +
+				"Please place files AMICoinWalletUI.jar, " + OSUtil.getZCashCli() + ", " + 
 				OSUtil.getZCashd() + " in the same directory.");
 		}
 	}
@@ -119,7 +119,7 @@ public class ZCashInstallationObserver
 	private synchronized DaemonInfo getDaemonInfoForUNIXLikeOS()
 		throws IOException, InterruptedException
 	{
-		return getDaemonInfoForUNIXLikeOS("zcashd");
+		return getDaemonInfoForUNIXLikeOS("amicoind");
 	}
 
 	// So far tested on macOS and Linux - expected to work on other UNIXes as well
@@ -196,7 +196,7 @@ public class ZCashInstallationObserver
 	private synchronized DaemonInfo getDaemonInfoForWindowsOS()
 		throws IOException, InterruptedException
 	{
-		return getDaemonInfoForWindowsOS("zend");
+		return getDaemonInfoForWindowsOS("amicoind");
 	}
 	
 	public static synchronized DaemonInfo getDaemonInfoForWindowsOS(String daemonName)
@@ -243,7 +243,7 @@ public class ZCashInstallationObserver
 					{
 						info.status = DAEMON_STATUS.RUNNING;
 						foundZCash = true;
-						//System.out.println("zend process data is: " + line);
+						//System.out.println("AMICoinWalletUI process data is: " + line);
 					}
 				} else if ((i >= 4) && foundZCash)
 				{

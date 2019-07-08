@@ -131,7 +131,7 @@ public class ZCashClientCaller
 		{
 			throw new IOException(
 				"The Horizen installation directory " + installDir + " needs to contain " +
-				"the command line utilities zend and zen-cli. zen-cli is missing!");
+				"the command line utilities amicoind and amicoin-cli. zen-cli is missing!");
 		}
 		
 		zcashd = new File(dir, OSUtil.getZCashd());
@@ -143,8 +143,8 @@ public class ZCashClientCaller
 		if (zcashd == null || (!zcashd.exists()))
 		{
 		    throw new IOException(
-		    	"The Horizen command line utility " + zcashcli.getCanonicalPath() + 
-		    	" was found, but zend was not found!");
+		    	"The Amicoin command line utility " + zcashcli.getCanonicalPath() + 
+		    	" was found, but amicoind was not found!");
 		}
 	}
 
@@ -155,12 +155,12 @@ public class ZCashClientCaller
 		String exportDir = OSUtil.getUserHomeDirectory().getCanonicalPath();
 		
 		List<String> zendOptions = Util.loadZendParameters(true);
-		Log.info("Custom zend options to be used are: {0}", zendOptions.toString());
+		Log.info("Custom amicoind options to be used are: {0}", zendOptions.toString());
 		
 		String zendFullCommandLine[] = new String[zendOptions.size() + 1];
 		zendFullCommandLine[0] = zcashd.getCanonicalPath();
 		
-		// Transfer the zend parameters, also possibly wrap them
+		// Transfer the amicoind parameters, also possibly wrap them
 		for (int i = 0; i < zendOptions.size(); i++)
 		{
 			String option = zendOptions.get(i);
@@ -675,7 +675,7 @@ public class ZCashClientCaller
 	 * @param memo text memo to include in the transaction
 	 * @param transactionFee transaction see to include
 	 * 
-	 * @return a zend operation ID for the send operation
+	 * @return a amicoind operation ID for the send operation
 	 * 
 	 * @throws WalletCallException
 	 * @throws IOException

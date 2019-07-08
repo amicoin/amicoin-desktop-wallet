@@ -474,11 +474,11 @@ public class Util
 		
 	
 	/**
-	 * Loads the zend parameters from file zend-cmd-options.conf. 
+	 * Loads the amicoind parameters from file amicoind-cmd-options.conf. 
 	 * 
 	 * @param onlyMeaningfulLines if true, only the essential lines are loaded (not comment/empty ones).
 	 * 
-	 * @return an array that represents the custom parameters of zend to use to start it.
+	 * @return an array that represents the custom parameters of amicoind to use to start it.
 	 * 
 	 * @throws IOException
 	 */
@@ -487,10 +487,10 @@ public class Util
 	{
     	String settingsDir = OSUtil.getSettingsDirectory();
     	File dir = new File(settingsDir);
-		File zendOptionsFile = new File(dir, "zend-cmd-options.conf");
+		File zendOptionsFile = new File(dir, "amicoind-cmd-options.conf");
 		if (!zendOptionsFile.exists())
 		{
-			Log.info("zend command line options configuration file zend-cmd-options.conf " + 
+			Log.info("amicoind command line options configuration file amicoind-cmd-options.conf " + 
 					 " does not exist. This is not expected!");
 			return new ArrayList<String>();
 		}

@@ -88,7 +88,7 @@ public class StartupProgressDialog extends JFrame {
             keyFetcher.fetchIfMissing(this);
         }
         
-        Log.info("Splash: checking if zend is already running...");
+        Log.info("Splash: checking if amicoind is already running...");
         boolean shouldStartZCashd = false;
         try {
             clientCaller.getDaemonRawRuntimeInfo();
@@ -103,13 +103,13 @@ public class StartupProgressDialog extends JFrame {
         }
         
         if (!shouldStartZCashd) {
-        	Log.info("Splash: zend already running...");
+        	Log.info("Splash: amicoind already running...");
             // What if started by hand but taking long to initialize???
 //            doDispose();
 //            return;
         } else
         {
-        	Log.info("Splash: zend will be started...");
+        	Log.info("Splash: amicoind will be started...");
         }
         
         final Process daemonProcess = 
@@ -151,7 +151,7 @@ public class StartupProgressDialog extends JFrame {
         if (daemonProcess != null) // Shutdown only if we started it
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
-            	Log.info("Stopping zend because we started it - now it is alive: " + 
+            	Log.info("Stopping amicoind because we started it - now it is alive: " + 
                 		           StartupProgressDialog.this.isAlive(daemonProcess));
                 try 
                 {
@@ -161,7 +161,7 @@ public class StartupProgressDialog extends JFrame {
 	                while (!StartupProgressDialog.this.waitFor(daemonProcess, 3000))
 	                {
 	                	long end = System.currentTimeMillis();
-	                	Log.info("Waiting for " + ((end - start) / 1000) + " seconds for zend to exit...");
+	                	Log.info("Waiting for " + ((end - start) / 1000) + " seconds for amicoind to exit...");
 	                	
 	                	if (end - start > 15 * 1000)
 	                	{
@@ -176,14 +176,14 @@ public class StartupProgressDialog extends JFrame {
 	                }
 	            
 	                if (StartupProgressDialog.this.isAlive(daemonProcess)) {
-	                	Log.info("zend is still alive although we tried to stop it. " +
+	                	Log.info("amicoind is still alive although we tried to stop it. " +
 	                                           "Hopefully it will stop later!");
-	                        //System.out.println("zend is still alive, killing forcefully");
+	                        //System.out.println("amicoind is still alive, killing forcefully");
 	                        //daemonProcess.destroyForcibly();
 	                    } else
-	                    	Log.info("zend shut down successfully");
+	                    	Log.info("amicoind shut down successfully");
                 } catch (Exception bad) {
-                	Log.error("Couldn't stop zend!", bad);
+                	Log.error("Couldn't stop amicoind!", bad);
                 }
             }
         });
